@@ -10,3 +10,7 @@ O município da cidade de São Paulo disponibiliza através do site do [Geosampa
 
 Atualmente os dados do IPTU são disponibilizados em formato CSV de forma comprimida em arquivos ZIP separados por ano de exercício. Optamos em muitos casos por importar esses arquivos de dados tabulados para uma tabela de no Banco de Dados PostGreSQL. Portanto muitas análises abacam sendo consultas SQL diretamente realiadas em uma base de dados previamente importada para um banco de dados PostiGreSQL.
 No entanto estamos utilizando o Pandas, uma biblioteca Python de análise de dados assim como outras ferramentas que vão variando de acordo com a necessidade da análise.
+
+## Resultados
+
+- [Tabela de proprietários de lotes individuais e condominiais](geoinfo-smdu/Analises-Diversas-na-Base-de-IPTU/tree/master/lotes-condominiais-individuais)
