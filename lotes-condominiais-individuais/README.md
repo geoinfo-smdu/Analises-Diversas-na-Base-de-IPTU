@@ -19,7 +19,7 @@ Então para tabularmos essas informações optamos por gerar duas consultas
 
 Essa é a situação mais simples, pois cada SQL que tem o `cd_condominio = '000'` representa um SQL de um lote individual, ou seja, que tem apenas um proprietário, ou digamos grupo de proprietários, afinal uma propriedade pode pertencer a diversas pessoas e empresas. 
 
-
+    ```SQL
     -- Para lotes individuais
     Select concat(setor, '.', quadra, '.', lote) as SQL, 
     nm_distrito_1 as distrito,
@@ -30,12 +30,14 @@ Essa é a situação mais simples, pois cada SQL que tem o `cd_condominio = '000
     where an_exercicio = '2019' and
     cd_condominio = '000' and
     (nm_distrito_1 = 'SE' or nm_distrito_1 = 'REPUBLICA');
+    ```
 
 ### Proprietários de lotes condominiais
 
 Nesse caso já temos uma peculiaridade que seria mais fácil de tratar com tabelas relacionadas do tipo uma para muitas, mas como a demanda era para retoranar todas as informações em apenas uma tabela tivemos que optar por concentrar a informação. Aqui já é o caso de todos os SQLs que tem `cd_condominio != '000'` e agrupados por `setor, quadra, cd_condominio`
 Concentramos todos os nomes de proprietários com `array_agg(nm_contribuinte_1) as proprietarios` e ainda contamos a quantidade de natureza jurídica do proprietário
 
+    ```SQL
     -- Para condomínios
     Select concat(setor, '.',quadra , '.', '*-', cd_condominio) as SQL, 
     min(nm_distrito_1) as distrito,
@@ -49,6 +51,7 @@ Concentramos todos os nomes de proprietários com `array_agg(nm_contribuinte_1) 
     cd_condominio != '000' and
     (nm_distrito_1 = 'SE' or nm_distrito_1 = 'REPUBLICA')
     group by setor, quadra, cd_condominio;
+    ```
 
 ## Considerações finais
 
