@@ -13,4 +13,4 @@ No entanto estamos utilizando o Pandas, uma biblioteca Python de análise de dad
 
 ## Resultados
 
-- [Tabela de proprietários de lotes individuais e condominiais](tree/master/lotes-condominiais-individuais)
+- [Tabela de proprietários de lotes individuais e condominiais](https://github.com/geoinfo-smdu/Analises-Diversas-na-Base-de-IPTU/tree/master/lotes-condominiais-individuais)
